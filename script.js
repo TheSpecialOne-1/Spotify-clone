@@ -1,74 +1,74 @@
-const songs = [
-  {
-    title: "Drugs You Should Try It",
-    artist: "Travis Scott",
-    src: "assets/drugs-you-should-try-it.mp3",
-    cover: "assets/travis1.jpg"
-  },
-  {
-    title: "Top Floor",
-    artist: "Travis Scott",
-    src: "assets/top-floor.mp3",
-    cover: "assets/travis2.jpg"
-  },
-  {
-    title: "Down In Atlanta",
-    artist: "Travis Scott",
-    src: "assets/down-in-atlanta.mp3",
-    cover: "assets/travis3.jpg"
-  },
-  {
-    title: "Hijhack",
-    artist: "A$AP Rocky",
-    src: "assets/hijhack.mp3",
-    cover: "assets/rocky1.jpg"
-  },
-  {
-    title: "A$AP Forever",
-    artist: "A$AP Rocky",
-    src: "assets/asap-forever.mp3",
-    cover: "assets/rocky2.jpg"
-  },
-  {
-    title: "Blowin Minds",
-    artist: "A$AP Rocky",
-    src: "assets/blowin-minds.mp3",
-    cover: "assets/rocky3.jpg"
-  }
-];
-
-let currentSong = 0;
-const audio = document.getElementById("audio");
-const title = document.getElementById("title");
-const cover = document.getElementById("cover");
-const artist = document.getElementById("artist");
-
-function loadSong(index) {
-  const song = songs[index];
-  title.textContent = song.title;
-  artist.textContent = song.artist;
-  audio.src = song.src;
-  cover.src = song.cover;
+body {
+  background-color: #121212;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  padding: 40px;
 }
 
-function togglePlay() {
-  if (audio.paused) {
-    audio.play();
-  } else {
-    audio.pause();
-  }
+.container {
+  max-width: 600px;
+  margin: auto;
 }
 
-function nextSong() {
-  currentSong = (currentSong + 1) % songs.length;
-  loadSong(currentSong);
-  audio.play();
+h1 {
+  text-align: center;
 }
 
-function prevSong() {
-  currentSong = (currentSong - 1 + songs.length) % songs.length;
-  loadSong(currentSong);
-  audio.play();
+.song-list {
+  margin-bottom: 30px;
 }
 
-loadSong(currentSong);
+.song-item {
+  background: #1e1e1e;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.song-item:hover {
+  background: #2a2a2a;
+}
+
+.song-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 6px;
+}
+
+.now-playing {
+  text-align: center;
+}
+
+.now-playing img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.controls {
+  margin-top: 10px;
+}
+
+button {
+  background-color: #1db954;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+audio {
+  width: 100%;
+  margin-top: 10px;
+}
