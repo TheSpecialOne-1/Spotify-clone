@@ -18,9 +18,9 @@ const songs = [
     cover: "assets/travis3.jpg"
   },
   {
-    title: "Hijack",
+    title: "Highjack",
     artist: "A$AP Rocky",
-    src: "assets/hijack.mp3",
+    src: "assets/highjack.mp3",
     cover: "assets/rocky1.jpg"
   },
   {
@@ -32,7 +32,7 @@ const songs = [
   {
     title: "Blowing Minds",
     artist: "A$AP Rocky",
-    src: "assets/blowing-minds.mp3",
+    src: "assets/blowin-minds.mp3",
     cover: "assets/rocky3.jpg"
   }
 ];
