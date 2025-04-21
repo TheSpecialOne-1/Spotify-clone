@@ -57,13 +57,16 @@ function loadSong(index) {
 
 function togglePlay() {
   if (audio.paused) {
-    audio.play();
+    audio.play().catch(error => {
+      console.error("Playback failed:", error);
+    });
     playPauseBtn.textContent = "⏸️";
   } else {
     audio.pause();
     playPauseBtn.textContent = "▶️";
   }
 }
+
 
 function nextSong() {
   currentSong = (currentSong + 1) % songs.length;
