@@ -1,34 +1,61 @@
+
 body {
   background-color: #121212;
   color: white;
   font-family: 'Arial', sans-serif;
-  text-align: center;
   padding: 40px;
 }
 
 .container {
-  max-width: 400px;
+  max-width: 600px;
   margin: auto;
 }
 
-.song-info img {
+h1 {
+  text-align: center;
+}
+
+.song-list {
+  margin-bottom: 30px;
+}
+
+.song-item {
+  background: #1e1e1e;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.song-item:hover {
+  background: #2a2a2a;
+}
+
+.song-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 6px;
+}
+
+.now-playing {
+  text-align: center;
+}
+
+.now-playing img {
   width: 100%;
+  max-height: 300px;
+  object-fit: cover;
   border-radius: 12px;
-}
-
-.song-info h2 {
-  margin-top: 15px;
-  font-size: 1.5rem;
-}
-
-.song-info h3 {
-  color: #b3b3b3;
-  font-size: 1rem;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .controls {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 button {
@@ -40,4 +67,9 @@ button {
   font-size: 20px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+audio {
+  width: 100%;
+  margin-top: 10px;
 }
