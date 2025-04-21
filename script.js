@@ -3,37 +3,37 @@ const songs = [
     title: "Drugs You Should Try It",
     artist: "Travis Scott",
     src: "assets/drugs-you-should-try-it.mp3",
-    cover: "https://picsum.photos/id/237/400/400"
+    cover: "assets/travis1.jpg"
   },
   {
     title: "Top Floor",
     artist: "Travis Scott",
     src: "assets/top-floor.mp3",
-    cover: "https://picsum.photos/id/1015/400/400"
+    cover: "assets/travis2.jpg"
   },
   {
     title: "Down In Atlanta",
     artist: "Travis Scott",
     src: "assets/down-in-atlanta.mp3",
-    cover: "https://picsum.photos/id/1005/400/400"
+    cover: "assets/travis3.jpg"
   },
   {
     title: "Hijack",
     artist: "A$AP Rocky",
     src: "assets/hijack.mp3",
-    cover: "https://picsum.photos/id/1003/400/400"
+    cover: "assets/rocky1.jpg"
   },
   {
     title: "ASAP Forever",
     artist: "A$AP Rocky",
     src: "assets/asap-forever.mp3",
-    cover: "https://picsum.photos/id/1021/400/400"
+    cover: "assets/rocky2.jpg"
   },
   {
     title: "Blowing Minds",
     artist: "A$AP Rocky",
     src: "assets/blowing-minds.mp3",
-    cover: "https://picsum.photos/id/1025/400/400"
+    cover: "assets/rocky3.jpg"
   }
 ];
 
