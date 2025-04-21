@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mini Spotify Clone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Mini Spotify Clone</h1>
+
+    <div class="song-info">
+      <img id="cover" src="assets/travis1.jpg" alt="Cover" />
+      <h2 id="title">Drugs You Should Try It</h2>
+      <h3 id="artist">Travis Scott</h3>
+    </div>
+
+    <audio id="audio" src="assets/drugs-you-should-try-it.mp3"></audio>
+    <div class="controls">
+      <button onclick="prevSong()">⏮️</button>
+      <button onclick="togglePlay()">▶️ / ⏸️</button>
+      <button onclick="nextSong()">⏭️</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
