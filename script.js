@@ -1,74 +1,101 @@
-body {
-  background-color: #121212;
-  color: white;
-  font-family: 'Arial', sans-serif;
-  padding: 40px;
+const songs = [
+  {
+    title: "Drugs You Should Try It",
+    artist: "Travis Scott",
+    src: "assets/drugs-you-should-try-it.mp3",
+    cover: "https://picsum.photos/id/237/400/400"
+  },
+  {
+    title: "Top Floor",
+    artist: "Travis Scott",
+    src: "assets/top-floor.mp3",
+    cover: "https://picsum.photos/id/1015/400/400"
+  },
+  {
+    title: "Down In Atlanta",
+    artist: "Travis Scott",
+    src: "assets/down-in-atlanta.mp3",
+    cover: "https://picsum.photos/id/1005/400/400"
+  },
+  {
+    title: "Hijack",
+    artist: "A$AP Rocky",
+    src: "assets/hijack.mp3",
+    cover: "https://picsum.photos/id/1003/400/400"
+  },
+  {
+    title: "ASAP Forever",
+    artist: "A$AP Rocky",
+    src: "assets/asap-forever.mp3",
+    cover: "https://picsum.photos/id/1021/400/400"
+  },
+  {
+    title: "Blowing Minds",
+    artist: "A$AP Rocky",
+    src: "assets/blowing-minds.mp3",
+    cover: "https://picsum.photos/id/1025/400/400"
+  }
+];
+
+let currentSong = 0;
+
+const songList = document.getElementById("song-list");
+const audio = document.getElementById("audio");
+const title = document.getElementById("title");
+const artist = document.getElementById("artist");
+const cover = document.getElementById("cover");
+const playPauseBtn = document.getElementById("playPauseBtn");
+
+function loadSong(index) {
+  const song = songs[index];
+  currentSong = index;
+  title.textContent = song.title;
+  artist.textContent = song.artist;
+  cover.src = song.cover;
+  audio.src = song.src;
 }
 
-.container {
-  max-width: 600px;
-  margin: auto;
+function togglePlay() {
+  if (audio.paused) {
+    audio.play();
+    playPauseBtn.textContent = "⏸️";
+  } else {
+    audio.pause();
+    playPauseBtn.textContent = "▶️";
+  }
 }
 
-h1 {
-  text-align: center;
+function nextSong() {
+  currentSong = (currentSong + 1) % songs.length;
+  loadSong(currentSong);
+  audio.play();
+  playPauseBtn.textContent = "⏸️";
 }
 
-.song-list {
-  margin-bottom: 30px;
+function prevSong() {
+  currentSong = (currentSong - 1 + songs.length) % songs.length;
+  loadSong(currentSong);
+  audio.play();
+  playPauseBtn.textContent = "⏸️";
 }
 
-.song-item {
-  background: #1e1e1e;
-  margin: 10px 0;
-  padding: 15px;
-  border-radius: 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  transition: background 0.2s;
-}
+audio.addEventListener("ended", nextSong);
 
-.song-item:hover {
-  background: #2a2a2a;
-}
-
-.song-item img {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  margin-right: 15px;
-  border-radius: 6px;
-}
-
-.now-playing {
-  text-align: center;
-}
-
-.now-playing img {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 15px;
-}
-
-.controls {
-  margin-top: 10px;
-}
-
-button {
-  background-color: #1db954;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  margin: 5px;
-  font-size: 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-audio {
-  width: 100%;
-  margin-top: 10px;
-}
+// Render the song list
+songs.forEach((song, index) => {
+  const item = document.createElement("div");
+  item.classList.add("song-item");
+  item.innerHTML = `
+    <img src="${song.cover}" alt="cover" />
+    <div>
+      <strong>${song.title}</strong><br />
+      <small>${song.artist}</small>
+    </div>
+  `;
+  item.addEventListener("click", () => {
+    loadSong(index);
+    audio.play();
+    playPauseBtn.textContent = "⏸️";
+  });
+  songList.appendChild(item);
+});
