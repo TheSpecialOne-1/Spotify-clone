@@ -1,0 +1,43 @@
+body {
+  background-color: #121212;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  padding: 40px;
+}
+
+.container {
+  max-width: 400px;
+  margin: auto;
+}
+
+.song-info img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.song-info h2 {
+  margin-top: 15px;
+  font-size: 1.5rem;
+}
+
+.song-info h3 {
+  color: #b3b3b3;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+button {
+  background-color: #1db954;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
