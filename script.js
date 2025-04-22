@@ -35,25 +35,24 @@ const songs = [
     src: "assets/blowin-minds.mp3",
     cover: "assets/rocky3.jpg"
   },
-   {
+  {
     title: "Pyramids",
     artist: "Frank Ocean",
     src: "assets/pyramids.mp3",
     cover: "assets/frank1.jpg"
   },
-   {
+  {
     title: "Nights",
     artist: "Frank Ocean",
     src: "assets/nights.mp3",
     cover: "assets/frank2.jpg"
   },
-   {
+  {
     title: "Novacane",
     artist: "Frank Ocean",
-    src: "assets/ovacane.mp3",
+    src: "assets/novacane.mp3",
     cover: "assets/frank3.jpg"
   }
-  
 ];
 
 let currentSong = 0;
@@ -107,13 +106,13 @@ function renderSongs(songArray) {
   songArray.forEach((song, index) => {
     const item = document.createElement("div");
     item.classList.add("song-item");
-    item.innerHTML = 
+    item.innerHTML = `
       <img src="${song.cover}" alt="cover" />
       <div>
         <strong>${song.title}</strong><br />
         <small>${song.artist}</small>
       </div>
-    ;
+    `;
     item.addEventListener("click", () => {
       currentSong = filteredSongs.indexOf(song);
       loadSong(song);
