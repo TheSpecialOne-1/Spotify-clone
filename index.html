@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Musify</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Musify</h1>
+
+    <!-- Artist Search Bar -->
+    <input type="text" id="artistSearch" placeholder="Search artist..." class="search-bar" />
+
+    <!-- Artist Filter Buttons -->
+    <div id="artistFilters" class="artist-filters"></div>
+
+    <!-- Song List -->
+    <div id="song-list" class="song-list"></div>
+
+    <!-- Now Playing Section -->
+    <div class="now-playing">
+      <img id="cover" src="" alt="Cover" />
+      <h2 id="title">Select a Song</h2>
+      <h3 id="artist"></h3>
+
+      <audio id="audio" controls></audio>
+
+      <div class="controls">
+        <button onclick="prevSong()">⏮️</button>
+        <button onclick="togglePlay()" id="playPauseBtn">▶️</button>
+        <button onclick="nextSong()">⏭️</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
