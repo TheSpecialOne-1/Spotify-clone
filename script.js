@@ -76,7 +76,6 @@ function loadSong(song) {
   audio.src = song.src;
 }
 
-
 function togglePlay() {
   if (audio.paused) {
     audio.play().catch(error => console.error("Playback failed:", error));
@@ -89,21 +88,20 @@ function togglePlay() {
 
 function nextSong() {
   currentSong = (currentSong + 1) % filteredSongs.length;
-  loadSong(currentSong);
+  loadSong(filteredSongs[currentSong]);
   audio.play();
   playPauseBtn.textContent = "⏸️";
 }
 
 function prevSong() {
   currentSong = (currentSong - 1 + filteredSongs.length) % filteredSongs.length;
-  loadSong(currentSong);
+  loadSong(filteredSongs[currentSong]);
   audio.play();
   playPauseBtn.textContent = "⏸️";
 }
 
 audio.addEventListener("ended", nextSong);
 
-// Render song list
 function renderSongs(songArray) {
   songList.innerHTML = "";
   songArray.forEach((song, index) => {
@@ -116,17 +114,18 @@ function renderSongs(songArray) {
         <small>${song.artist}</small>
       </div>
     `;
-item.addEventListener("click", () => {
-  currentSong = songs.indexOf(song); // use global index for next/prev to work
-  loadSong(song);
-  audio.play();
-  playPauseBtn.textContent = "⏸️";
-});
-
+    item.addEventListener("click", () => {
+      currentSong = filteredSongs.indexOf(song);
+      loadSong(song);
+      audio.play();
+      playPauseBtn.textContent = "⏸️";
+    });
+    songList.appendChild(item);
+  });
 }
 
-// Create artist buttons
 function renderArtistButtons() {
+  artistFilters.innerHTML = "";
   const uniqueArtists = [...new Set(songs.map(song => song.artist))];
   uniqueArtists.forEach(artist => {
     const btn = document.createElement("button");
@@ -140,7 +139,6 @@ function renderArtistButtons() {
   });
 }
 
-// Search artist dynamically
 artistSearch.addEventListener("input", (e) => {
   const value = e.target.value.toLowerCase();
   filteredSongs = songs.filter(song =>
@@ -149,7 +147,6 @@ artistSearch.addEventListener("input", (e) => {
   renderSongs(filteredSongs);
 });
 
-// Initial render
-filteredSongs = [...songs];
+// Initial load
 renderArtistButtons();
 renderSongs(filteredSongs);
