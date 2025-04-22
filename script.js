@@ -50,15 +50,13 @@ const playPauseBtn = document.getElementById("playPauseBtn");
 const artistSearch = document.getElementById("artistSearch");
 const artistFilters = document.getElementById("artistFilters");
 
-function loadSong(index) {
-  const song = filteredSongs[index];
-  if (!song) return;
-  currentSong = index;
+function loadSong(song) {
   title.textContent = song.title;
   artist.textContent = song.artist;
   cover.src = song.cover;
   audio.src = song.src;
 }
+
 
 function togglePlay() {
   if (audio.paused) {
@@ -99,14 +97,13 @@ function renderSongs(songArray) {
         <small>${song.artist}</small>
       </div>
     `;
-    item.addEventListener("click", () => {
-      currentSong = index;
-      loadSong(index);
-      audio.play();
-      playPauseBtn.textContent = "⏸️";
-    });
-    songList.appendChild(item);
-  });
+item.addEventListener("click", () => {
+  currentSong = songs.indexOf(song); // use global index for next/prev to work
+  loadSong(song);
+  audio.play();
+  playPauseBtn.textContent = "⏸️";
+});
+
 }
 
 // Create artist buttons
