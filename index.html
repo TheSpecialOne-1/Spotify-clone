@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,6 +33,23 @@
         <button onclick="togglePlay()" id="playPauseBtn">▶️</button>
         <button onclick="nextSong()">⏭️</button>
       </div>
+      <button class="add-playlist-btn" onclick="addToPlaylist()">➕ Add to Playlist</button>
+    </div>
+
+    <!-- Playlist Manager -->
+    <div class="playlists-manager">
+      <h2>Playlists</h2>
+      <div class="new-playlist">
+        <input type="text" id="newPlaylistName" placeholder="New playlist name" />
+        <button onclick="createPlaylist()">Create</button>
+      </div>
+      <div id="playlists" class="playlists"></div>
+    </div>
+
+    <!-- Active Playlist Songs -->
+    <div class="playlist-section">
+      <h2>Active Playlist Songs</h2>
+      <div id="playlist" class="playlist"></div>
     </div>
   </div>
 
