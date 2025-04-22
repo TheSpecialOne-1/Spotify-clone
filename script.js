@@ -38,6 +38,7 @@ const songs = [
 ];
 
 let currentSong = 0;
+let filteredSongs = [...songs];
 
 const songList = document.getElementById("song-list");
 const audio = document.getElementById("audio");
@@ -46,8 +47,12 @@ const artist = document.getElementById("artist");
 const cover = document.getElementById("cover");
 const playPauseBtn = document.getElementById("playPauseBtn");
 
+const artistSearch = document.getElementById("artistSearch");
+const artistFilters = document.getElementById("artistFilters");
+
 function loadSong(index) {
-  const song = songs[index];
+  const song = filteredSongs[index];
+  if (!song) return;
   currentSong = index;
   title.textContent = song.title;
   artist.textContent = song.artist;
@@ -57,9 +62,7 @@ function loadSong(index) {
 
 function togglePlay() {
   if (audio.paused) {
-    audio.play().catch(error => {
-      console.error("Playback failed:", error);
-    });
+    audio.play().catch(error => console.error("Playback failed:", error));
     playPauseBtn.textContent = "⏸️";
   } else {
     audio.pause();
@@ -67,16 +70,15 @@ function togglePlay() {
   }
 }
 
-
 function nextSong() {
-  currentSong = (currentSong + 1) % songs.length;
+  currentSong = (currentSong + 1) % filteredSongs.length;
   loadSong(currentSong);
   audio.play();
   playPauseBtn.textContent = "⏸️";
 }
 
 function prevSong() {
-  currentSong = (currentSong - 1 + songs.length) % songs.length;
+  currentSong = (currentSong - 1 + filteredSongs.length) % filteredSongs.length;
   loadSong(currentSong);
   audio.play();
   playPauseBtn.textContent = "⏸️";
@@ -84,21 +86,54 @@ function prevSong() {
 
 audio.addEventListener("ended", nextSong);
 
-// Render the song list
-songs.forEach((song, index) => {
-  const item = document.createElement("div");
-  item.classList.add("song-item");
-  item.innerHTML = `
-    <img src="${song.cover}" alt="cover" />
-    <div>
-      <strong>${song.title}</strong><br />
-      <small>${song.artist}</small>
-    </div>
-  `;
-  item.addEventListener("click", () => {
-    loadSong(index);
-    audio.play();
-    playPauseBtn.textContent = "⏸️";
+// Render song list
+function renderSongs(songArray) {
+  songList.innerHTML = "";
+  songArray.forEach((song, index) => {
+    const item = document.createElement("div");
+    item.classList.add("song-item");
+    item.innerHTML = `
+      <img src="${song.cover}" alt="cover" />
+      <div>
+        <strong>${song.title}</strong><br />
+        <small>${song.artist}</small>
+      </div>
+    `;
+    item.addEventListener("click", () => {
+      currentSong = index;
+      loadSong(index);
+      audio.play();
+      playPauseBtn.textContent = "⏸️";
+    });
+    songList.appendChild(item);
   });
-  songList.appendChild(item);
+}
+
+// Create artist buttons
+function renderArtistButtons() {
+  const uniqueArtists = [...new Set(songs.map(song => song.artist))];
+  uniqueArtists.forEach(artist => {
+    const btn = document.createElement("button");
+    btn.classList.add("artist-btn");
+    btn.textContent = artist;
+    btn.addEventListener("click", () => {
+      filteredSongs = songs.filter(song => song.artist === artist);
+      renderSongs(filteredSongs);
+    });
+    artistFilters.appendChild(btn);
+  });
+}
+
+// Search artist dynamically
+artistSearch.addEventListener("input", (e) => {
+  const value = e.target.value.toLowerCase();
+  filteredSongs = songs.filter(song =>
+    song.artist.toLowerCase().includes(value)
+  );
+  renderSongs(filteredSongs);
 });
+
+// Initial render
+filteredSongs = [...songs];
+renderArtistButtons();
+renderSongs(filteredSongs);
