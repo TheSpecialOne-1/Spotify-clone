@@ -1,0 +1,151 @@
+body {
+  background-color: #121212;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  padding: 40px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* Search Bar */
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin: 20px 0;
+  border-radius: 6px;
+  border: none;
+}
+
+/* Artist Filter Buttons */
+.artist-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.artist-btn {
+  background-color: #333;
+  border: 1px solid #444;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.artist-btn:hover {
+  background-color: #444;
+}
+
+/* Song List */
+.song-list {
+  margin-bottom: 30px;
+}
+
+.song-item {
+  background: #1e1e1e;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.song-item:hover {
+  background: #2a2a2a;
+}
+
+.song-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 6px;
+}
+
+/* Now Playing */
+.now-playing {
+  text-align: center;
+}
+
+.now-playing img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.controls {
+  margin-top: 10px;
+}
+
+button {
+  background-color: #1db954;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+audio {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.auth-container {
+  max-width: 400px;
+  margin: 100px auto;
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.auth-container h1 {
+  margin-bottom: 20px;
+}
+
+.auth-container form input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.auth-container form button {
+  background-color: #1db954;
+  color: white;
+  padding: 12px;
+  border: none;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.auth-container form button:hover {
+  background-color: #25a85d;
+}
+
+.auth-container p {
+  margin-top: 15px;
+}
