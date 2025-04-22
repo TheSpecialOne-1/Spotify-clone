@@ -1,3 +1,5 @@
+style.css
+/* style.css */
 body {
   background-color: #121212;
   color: white;
@@ -10,7 +12,7 @@ body {
   margin: auto;
 }
 
-h1 {
+h1, h2 {
   text-align: center;
 }
 
@@ -36,10 +38,11 @@ h1 {
   background-color: #333;
   border: 1px solid #444;
   color: #fff;
-  padding: 8px 15px;
+  padding: 10px 15px;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s;
+  font-size: 20px;
 }
 
 .artist-btn:hover {
@@ -100,6 +103,82 @@ button {
   font-size: 20px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+/* Add-to-playlist button */
+.add-playlist-btn {
+  margin-top: 10px;
+}
+
+/* Playlist Manager */
+.playlists-manager {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.new-playlist {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.new-playlist input {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  width: 200px;
+}
+
+.playlists {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.playlist-name-item {
+  background: #1e1e1e;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.playlist-name-item button {
+  background-color: #e74c3c;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+/* Active Playlist Songs */
+.playlist-section {
+  margin-top: 30px;
+}
+
+.playlist {
+  margin-top: 10px;
+}
+
+.playlist-item {
+  background: #1e1e1e;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.playlist-item button {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 5px;
+  font-size: 14px;
+  border-radius: 4px;
 }
 
 audio {
