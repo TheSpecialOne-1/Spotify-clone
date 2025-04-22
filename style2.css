@@ -1,0 +1,88 @@
+style2.css
+/* style.css (additions for auth pages + existing music‑player CSS) */
+
+body {
+  background-color: #121212;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Centered form wrapper */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Card around the form */
+.auth-card {
+  background: #1e1e1e;
+  padding: 40px 30px;
+  border-radius: 10px;
+  width: 320px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+/* Form heading */
+.auth-card h2 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Input groups */
+.form-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  background: #333;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+}
+
+/* Primary buttons (login, signup) */
+.auth-card button {
+  width: 100%;
+  background-color: #1db954;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+.auth-card button:hover {
+  background-color: #17a047;
+}
+
+/* Switch link below form */
+.switch {
+  margin-top: 15px;
+  font-size: 14px;
+}
+.switch a {
+  color: #1db954;
+  text-decoration: none;
+}
+.switch a:hover {
+  text-decoration: underline;
+}
+
+/* Keep the existing player styles unchanged below */
+/* … paste the rest of your music-player CSS here … */
