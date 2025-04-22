@@ -1,3 +1,32 @@
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin: 20px 0;
+  border-radius: 6px;
+  border: none;
+}
+
+.artist-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.artist-btn {
+  background-color: #333;
+  border: 1px solid #444;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.artist-btn:hover {
+  background-color: #444;
+}
 
 body {
   background-color: #121212;
